@@ -1,0 +1,79 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #0e2136;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+    color: silver;
+    font-size: 35px;
+    transform: translate(160px, 50px);
+}
+#your-email{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-color: yellow;
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    transform: translate(120px, 150px);
+}
+#your-message{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-color: aqua;
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    transform: translate(120px, 200px);
+}
+.button{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    border-color: red;
+    height: 30px;
+    width: 100px;
+    transform: translate(190px, 250px);
+}
+.box{
+    background: #142d4a;
+    height: 500px;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    position: absolute;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after, .box::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 0%, rgb(241, 241, 56), red, green, blue, aqua);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 10px;
+    border-radius: 8px;
+    animation: 3s spin linear infinite;
+}
+.box::before{
+    filter:blur(1.5rem);
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
